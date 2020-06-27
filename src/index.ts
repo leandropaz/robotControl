@@ -15,9 +15,9 @@ r1.question("What are the robot's coordinates? ", (answer: string) => {
   }
   r1.question("Now please, enter the command list for this robot: ", (operation: string) => {
     command = operation;
-    const robot = new Robot(coordinates[0], parseInt(coordinates[1]), parseInt(coordinates[2]));
+    const robot = new Robot(coordinates[0].toUpperCase(), parseInt(coordinates[1]), parseInt(coordinates[2]));
     robot.getPosition();
-    robot.calculatePosition(command);
+    robot.calculatePosition(command.toUpperCase());
     r1.close();
   });
 });
