@@ -1,5 +1,5 @@
 import readline from 'readline';
-import { Robot } from './robot/robot';
+import Robot from './robot/robot';
 
 const coordinates: string[] = [];
 
