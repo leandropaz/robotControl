@@ -1,4 +1,4 @@
-export class Robot {
+export default class Robot {
   public get positionY(): number {
     return this._positionY;
   }
@@ -11,20 +11,20 @@ export class Robot {
   public set positionX(value: number) {
     this._positionX = value;
   }
-  public get heading(): string {
-    return this._heading;
+  public get facing(): string {
+    return this._facing;
   }
-  public set heading(value: string) {
-    this._heading = value;
+  public set facing(value: string) {
+    this._facing = value;
   }
 
   public getPosition(): void {
-    console.log(`Robot is facing ${this.heading} at position ${this._positionX} ${this._positionY}`);
+    console.log(`Robot is facing ${this.facing} at position ${this._positionX} ${this._positionY}`);
     console.log('\n\n\n');
   }
 
   constructor(
-    private _heading: string,
+    private _facing: string,
     private _positionX: number,
     private _positionY: number
   ) { }
@@ -49,7 +49,7 @@ export class Robot {
   }
 
   private move(times: number): void {
-    const facing = this.heading;
+    const facing = this.facing;
 
     switch (facing) {
       case 'N':
@@ -69,22 +69,22 @@ export class Robot {
   }
 
   private turn(direction: string): void {
-    const facing = this.heading;
+    const facing = this.facing;
     switch (facing) {
       case 'N':
-        direction === 'R' ? this.heading = 'E' : this.heading = 'W';
+        direction === 'R' ? this.facing = 'E' : this.facing = 'W';
         break;
       case 'S':
-        direction === 'R' ? this.heading = 'W' : this.heading = 'E';
+        direction === 'R' ? this.facing = 'W' : this.facing = 'E';
         break;
       case 'E':
-        direction === 'R' ? this.heading = 'S' : this.heading = 'N';
+        direction === 'R' ? this.facing = 'S' : this.facing = 'N';
         break;
       case 'W':
-        direction === 'R' ? this.heading = 'N' : this.heading = 'S';
+        direction === 'R' ? this.facing = 'N' : this.facing = 'S';
         break;
     }
-    console.log("Robot is facing ", this.heading);
+    console.log("Robot is facing ", this.facing);
   }
 
   public calculatePosition(commands: string): void {
@@ -102,6 +102,6 @@ export class Robot {
         }
       }
     }
-    console.log(`Final Position: ${this.heading} ${this.positionX} ${this.positionY}`);
+    console.log(`Final Position: ${this.facing} ${this.positionX} ${this.positionY}`);
   }
 }
