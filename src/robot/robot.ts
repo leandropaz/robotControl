@@ -1,3 +1,5 @@
+import World from '../world';
+
 export default class Robot {
   public get positionY(): number {
     return this._positionY;
@@ -29,40 +31,22 @@ export default class Robot {
     private _positionY: number
   ) { }
 
-  private worldLimits(position: number, steps: number, direction: string): number {
-    while (steps > 0) {
-      if (direction === '+') {
-        position++;
-        if (position === 100) {
-          position = 0;
-        }
-      }
-      else {
-        position--;
-        if (position === -1) {
-          position = 99;
-        }
-      }
-      steps--;
-    }
-    return position;
-  }
 
   private move(times: number): void {
     const facing = this.facing;
 
     switch (facing) {
       case 'N':
-        this.positionY = this.worldLimits(this.positionY, times, '+');
+        this.positionY = World.worldLimits(this.positionY, times, '+');
         break;
       case 'S':
-        this.positionY = this.worldLimits(this.positionY, times, '-');
+        this.positionY = World.worldLimits(this.positionY, times, '-');
         break;
       case 'E':
-        this.positionX = this.worldLimits(this.positionX, times, '+');
+        this.positionX = World.worldLimits(this.positionX, times, '+');
         break;
       case 'W':
-        this.positionX = this.worldLimits(this.positionX, times, '-');
+        this.positionX = World.worldLimits(this.positionX, times, '-');
         break;
     }
     console.log("Now robot is in position: ", this.positionX, this.positionY);
