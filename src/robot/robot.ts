@@ -88,7 +88,7 @@ export class Robot {
   }
 
   public calculatePosition(commands: string): void {
-    const regex = /([MLR]{1}\B)(\d{0,3})/g;
+    const regex = /([MLR]{1})(\d{0,3})/g;
     let command;
     while ((command = regex.exec(commands)) !== null) {
       let times: number = command[2] === '' ? 1 : parseInt(command[2]);
