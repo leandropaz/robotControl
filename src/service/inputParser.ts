@@ -13,7 +13,6 @@ export function positionParser(input: string): { pos: string, x: number, y: numb
     coordinates.x = parseInt(regInput[2]);
     coordinates.y = parseInt(regInput[3]);
   }
-  console.log(coordinates)
   return coordinates;
 }
 
