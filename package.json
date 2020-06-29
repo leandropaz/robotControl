@@ -7,7 +7,7 @@
     "test": "mocha -r ts-node/register tests/**/*.test.ts",
     "lint": "eslint . --ext .ts",
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' ./src/index.ts",
-    "build": "tsc -p .",
+    "build": "tsc -p tsconfig-build.json",
     "start": "node build/index.js"
   },
   "author": "Leandro Paz",
