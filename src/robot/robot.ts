@@ -20,11 +20,6 @@ export default class Robot {
     this._facing = value;
   }
 
-  public getPosition(): void {
-    console.log(`Robot is facing ${this.facing} at position ${this._positionX} ${this._positionY}`);
-    console.log('\n\n\n');
-  }
-
   constructor(
     private _facing: string,
     private _positionX: number,
@@ -49,7 +44,6 @@ export default class Robot {
         this.positionX = World.worldLimits(this.positionX, times, '-');
         break;
     }
-    console.log("Now robot is in position: ", this.positionX, this.positionY);
   }
 
   private turn(direction: string): void {
@@ -68,7 +62,6 @@ export default class Robot {
         direction === 'R' ? this.facing = 'N' : this.facing = 'S';
         break;
     }
-    console.log("Robot is facing ", this.facing);
   }
 
   public calculatePosition(commands: string): void {
